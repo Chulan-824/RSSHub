@@ -26,8 +26,8 @@ export default defineConfig(({ mode }) => {
                 BrowserSession: exports.durableObject({ storage: 'sqlite' }),
             },
             env: {
-                // KV namespace for caching (auto-provisioned on first deploy)
-                CACHE: bindings.kv(),
+                // Reuse this deployment's existing cache namespace.
+                CACHE: bindings.kv({ id: 'ac78811d34cb41a0a37200392d36a203' }),
                 // Browser Run API for Playwright support
                 // Requires Workers Paid plan
                 BROWSER: bindings.browser(),
